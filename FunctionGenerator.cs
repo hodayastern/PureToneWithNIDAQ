@@ -69,15 +69,10 @@ namespace NationalInstruments.Examples
             // Determine the actual sample clock rate
             timingSubobject.SampleClockRate = _sampleClockRate;
             _resultingSampleClockRate = timingSubobject.SampleClockRate;
-            Console.WriteLine("desiredFrequency = {0}", desiredFrequency);
 
-            Console.WriteLine("_sampleClockRatePerCycle = {0}", _sampleClockRate);
-            Console.WriteLine("_resultingSampleClockRate = {0}", _resultingSampleClockRate);
-            
             switch(type)
             {
                 case WaveformType.SineWave:
-                    Console.WriteLine("duration in Init = {0}", duration);
                     _data = GenerateSineWave(desiredFrequency,amplitude, _resultingSampleClockRate, samplesPerCycle, duration);
                     break;
                 default:
@@ -110,15 +105,7 @@ namespace NationalInstruments.Examples
             int samplesPerCycle,
             double duration)
         {
-
-            Console.WriteLine("duration in GenerateSineWave = {0}", duration);
-
-            Console.WriteLine("frequency: " + frequency);
-            Console.WriteLine("sampleClockRate: " + sampleClockRate);
-
             int totalSamples = Convert.ToInt32(frequency * samplesPerCycle * duration);
-            Console.WriteLine("totalSamples: " + totalSamples);
-
             double[] rVal = new double[totalSamples];
 
             for(int i=0; i<totalSamples; i++)

@@ -1,14 +1,16 @@
 /******************************************************************************
 *
-* Example program:
+* Based on NI's example program:
 *   ContGenVoltageWfm_IntClk
 *
 * Category:
 *   AO
 *
 * Description:
-*   This example demonstrates how to continuously output a periodic waveform
+*   This example demonstrates how to write finite output of a periodic waveform
+*   for X seconds. This is called a pure tone - a sinewave of a single frequency,
 *   using an internal sample clock.
+* The next lines are given from NI's example.
 *
 * Instructions for running:
 *   1.  Select the physical channel corresponding to where your signal is output
@@ -39,24 +41,7 @@
 *   In this example, the signal will output to the ao0 pin on your DAQ device.
 *   For more information on the input and output terminals for your device, open
 *   the NI-DAQmx Help, and refer to the NI-DAQmx Device Terminals and Device
-*   Considerations books in the table of contents.
-*
-* Microsoft Windows Vista User Account Control
-*   Running certain applications on Microsoft Windows Vista requires
-*   administrator privileges, 
-*   because the application name contains keywords such as setup, update, or
-*   install. To avoid this problem, 
-*   you must add an additional manifest to the application that specifies the
-*   privileges required to run 
-*   the application. Some Measurement Studio NI-DAQmx examples for Visual Studio
-*   include these keywords. 
-*   Therefore, all examples for Visual Studio are shipped with an additional
-*   manifest file that you must 
-*   embed in the example executable. The manifest file is named
-*   [ExampleName].exe.manifest, where [ExampleName] 
-*   is the NI-provided example name. For information on how to embed the manifest
-*   file, refer to http://msdn2.microsoft.com/en-us/library/bb756929.aspx.Note: 
-*   The manifest file is not provided with examples for Visual Studio .NET 2003.
+*   Considerations books in the table of contents.  
 *
 ******************************************************************************/
 
@@ -482,11 +467,9 @@ namespace NationalInstruments.Examples.ContGenVoltageWfm_IntClk
                 
                 
                 // configure the sample clock with the calculated rate
-                Console.WriteLine("actual sample clock rate is: "+  fGen.ResultingSampleClockRate);
 
                 int samplesPerChannel = Convert.ToInt32((Double.Parse(frequency) * Double.Parse(duration)) * int.Parse(samplesPerCycle));
 
-                Console.WriteLine("actual sample per channel: " + samplesPerChannel);
 
                 myTask.Timing.ConfigureSampleClock("",
                     fGen.ResultingSampleClockRate,
