@@ -1,11 +1,12 @@
-Example Title:           ContGenVoltageWfm_IntClk
-
+Based on 
 Example Filename:        ContGenVoltageWfm_IntClk.sln
 
 Category:                AO
 
-Description:             This example demonstrates how to continuously output a
-                         periodic waveform using an internal sample clock.
+Description:             This example demonstrates how to finite output of a 
+                         periodic waveform using an internal sample clock,
+                         for X seconds. 
+                         This is called a pure tone - a sinewave of a single frequency.
 
 Software Group:          Measurement Studio
 
